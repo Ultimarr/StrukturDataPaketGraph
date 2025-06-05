@@ -1,9 +1,60 @@
 #include <iostream>
+#include <string>
 using namespace std;
+/*
+Dibuat oleh:
+1. Hudayullah Ayasya Khoirizal
+2. Muhammad Hanif Awliya
+3. Aisya Citra Hapsari
 
+main                 : Hudayullah
+addressChecker       : Hudayullah
+initGraph            : Hudayullah
+Breadth First Search :
+kalo ada function lain jangan lupa di list disini
+*/
+
+int **matrix;
+bool **isSetMatrix;
+int numOfNodes;
+bool directed;
+bool weighted;
+
+void initGraph(int nodes, bool isDirected, bool isWeighted)
+{
+    numOfNodes = nodes;
+    directed = isDirected;
+    weighted = isWeighted;
+
+    matrix = new int *[numOfNodes];
+    isSetMatrix = new bool *[numOfNodes];
+
+    for (int i = 0; i < numOfNodes; i++)
+    {
+        matrix[i] = new int[numOfNodes];
+        isSetMatrix[i] = new bool[numOfNodes];
+        for (int j = 0; j < numOfNodes; j++)
+        {
+            matrix[i][j] = 0;
+            isSetMatrix[i][j] = false;
+        }
+    }
+}
+
+bool addressChecker(char Address)
+{
+    if (Address < 'a' || Address > 'o')
+    {
+        cout << "Alamat tidak valid" << endl;
+        return false;
+    }
+
+    return true;
+}
 
 int main()
 {
+    initGraph(15, false, true);
 
     string buyerName;
     string sellerName;
@@ -31,11 +82,19 @@ int main()
     getline(cin, itemBought);
     cout << "Inputkan alamat pembeli\t: ";
     cin >> buyerAddress;
+    if (!addressChecker(buyerAddress))
+    {
+        return 1;
+    }
     cin.ignore();
     cout << "Inputkan nama penjual\t: ";
     getline(cin, sellerName);
     cout << "Inputkan alamat penjual\t: ";
     cin >> sellerAddress;
+    if (!addressChecker(sellerAddress))
+    {
+        return 1;
+    }
 
     cout << "\nBerikut adalah pengisian data: \n";
     cout << "Nama Pembeli\t: " << buyerName << endl;
