@@ -3,6 +3,7 @@
 using namespace std;
 /*
 Dibuat oleh:
+KELOMPOK 8
 1. Hudayullah Ayasya Khoirizal
 2. Muhammad Hanif Awliya
 3. Aisya Citra Hapsari
