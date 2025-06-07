@@ -181,10 +181,6 @@ void printPath(Node *dest, string item, string seller, string buyer)
     cout << "Total jarak: " << dest->dist << endl;
 }
 
-void ShippingFee()
-{
-    int priceFrom1CitytoAnother = 15000;
-}
 
 int main()
 {
